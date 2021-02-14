@@ -1,0 +1,10 @@
+# TEMAT PRACY
+
+Celem projektu jest zbudowanie jak najmniejszego systemu plików w oparciu o system Linux (jądro systemu Linux + niezbędne oprogramowanie), który pozwoli na wykonanie określonych zadań.
+Zadania, które ma wykonywać system:
+
+    1. Uruchomić system plików w pamięci ulotnej.
+    2. Wyświetlić logo ASCII podczas uruchomienia konsoli
+    3. Automatycznie ściągnąć plik http://150.254.30.30/mnaumowicz/html/plik.gz.
+    4. Automatycznie rozpakować plik.
+    5. Automatycznie zapisać wartości z 2 wiersza i 2 kolumny z rozpakowanego pliku do pliku o nazwie wynik.

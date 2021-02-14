@@ -1,0 +1,16 @@
+.. Minimalistic Linux documentation master file, created by
+   sphinx-quickstart on Tue Jan 26 21:23:43 2021.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Systemy operacyjne i aplikacje dla systemów:
+==============================================
+Minimalistyczny system plików dla systemów wbudowanych
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Spis treści:
+   
+   temat
+   wymagania

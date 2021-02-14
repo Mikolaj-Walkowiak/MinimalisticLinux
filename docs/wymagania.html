@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WYMAGANIA &#8212; Minimalistic Linux 26/01/21 - dokumentacja</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="index" title="Indeks" href="genindex.html" />
+    <link rel="search" title="Szukaj" href="search.html" />
+    <link rel="prev" title="TEMAT PRACY" href="temat.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="wymagania">
+<h1>WYMAGANIA<a class="headerlink" href="#wymagania" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<div class="section" id="skompilowany-system-ma-byc-uruchomiony-w-emulatorze-qemu-wersja-dowolna-pod-systemem-linux-0-5-pkt">
+<h2>1) Skompilowany system ma być uruchomiony w emulatorze QEMU (wersja dowolna) pod systemem Linux.(0.5 pkt.)<a class="headerlink" href="#skompilowany-system-ma-byc-uruchomiony-w-emulatorze-qemu-wersja-dowolna-pod-systemem-linux-0-5-pkt" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<p><img alt="sys_up" src="_images/1.png" />
+Jak widać system działa poprawnie, uruchamia się oraz spełnia wszystkie wymagania projektowe.</p>
+</div>
+<div class="section" id="dokumentacja-w-myst-https-myst-parser-readthedocs-io-en-latest-opis-projektu-opis-wykorzystanych-narzedzi-system-budowania-system-operacyjny-wybrany-pakiet-narzedzi-indywidualne-narzedzia-opis-wykorzystanych-metod-do-minimalizacji-systemu-zrzut-ekranu-pokazujacy-zajetosc-systemu-wyrazona-w-bajtach-moze-byc-oddzielnie-jadro-oraz-oddzielnie-system-jezeli-sa-uruchamiane-osobno-jakis-komentarz-do-wynikow-1-0-pkt">
+<h2>2) Dokumentacja w MyST(https://myst-parser.readthedocs.io/en/latest/#) - opis projektu, opis wykorzystanych narzędzi(system budowania - system operacyjny, wybrany pakiet narzędzi, indywidualne narzędzia), opis wykorzystanych metod do minimalizacji systemu, zrzut ekranu pokazujący zajętość systemu wyrażoną w bajtach(może być oddzielnie jądro oraz oddzielnie system, jeżeli są uruchamiane osobno), jakiś komentarz do wyników.(1.0 pkt)<a class="headerlink" href="#dokumentacja-w-myst-https-myst-parser-readthedocs-io-en-latest-opis-projektu-opis-wykorzystanych-narzedzi-system-budowania-system-operacyjny-wybrany-pakiet-narzedzi-indywidualne-narzedzia-opis-wykorzystanych-metod-do-minimalizacji-systemu-zrzut-ekranu-pokazujacy-zajetosc-systemu-wyrazona-w-bajtach-moze-byc-oddzielnie-jadro-oraz-oddzielnie-system-jezeli-sa-uruchamiane-osobno-jakis-komentarz-do-wynikow-1-0-pkt" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<p>Dokumentacja została przygotowana za pomocą MyST.</p>
+<p>Projekt wykorzystuje busybox 1.23 oraz kernel 5.20, a dokładniej teeny-linux-basic. Jest to największa dostępna wersja kernela, nie używałem mniejszych ponieważ:</p>
+<p>a) nie do końca działały</p>
+<p>b) jest to zadanie zaliczeniowe, a więc uznałem że należy zrobić wszystko samemu.</p>
+<p>System budowany jest za pomocą make, buildroot działał stanowczo za wolno, ponadto miał wiele problemów ze zmniejszeniem rozmiaru jądra, uznałem iż szybciej będzie wszystko robić „ręcznie”.</p>
+<p>Metoda minimalizacji - ostatecznie wyłączyłem wszystko co nie zawiera w sobie „Intel” lub „PCI” oraz kilka funkcji sieciowych. Jeżeli chodzi o busyboxa, wyłączyłem wszystko czego nie używam, z wyjątkiem kilku opcji które psują system pomimo nie używania ich przeze mnie.</p>
+<p>Rozmiar jądra:</p>
+<p><img alt="kernel" src="_images/2.png" /></p>
+<p>Rozmiar systemu:</p>
+<p><img alt="kernel" src="_images/3.png" /></p>
+<p>Wyniki oceniam jako bardzo dobre, system zmieści się na dyskietce. Możliwe było ucięcie około 100kb jądra kompilując je na systemie x86, jednak VM box nie chciał uruchomić takiego systemu, niestety więc prezentuję ten nieco większy system.</p>
+</div>
+<div class="section" id="przygotowanie-patchy-ze-zmianami-wprowadzonymi-do-oryginalnych-projektow-przygotowanie-wersji-binarnych-plikow-projektowych-1-0-pkt">
+<h2>3) Przygotowanie patchy ze zmianami wprowadzonymi do oryginalnych projektów. Przygotowanie wersji binarnych plików projektowych.(1.0 pkt.)<a class="headerlink" href="#przygotowanie-patchy-ze-zmianami-wprowadzonymi-do-oryginalnych-projektow-przygotowanie-wersji-binarnych-plikow-projektowych-1-0-pkt" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<p>Patche umieszczam wraz ze sprawozdaniem w folderze patches, z powodu rozmiaru nie wstawiam ich do prezentacji.</p>
+</div>
+<div class="section" id="prezentacja-0-5-pkt">
+<h2>4) Prezentacja.(0.5 pkt)<a class="headerlink" href="#prezentacja-0-5-pkt" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<p>Działanie systemu można zauważyć w punkcie 1, oczywiście mogę również zaprezentować działanie na żywo.</p>
+</div>
+<div class="section" id="rozmiar-jadro-system-musi-byc-mniejszy-niz-2000000-bajtow-2-0-pkt">
+<h2>5) Rozmiar jądro+system musi być mniejszy niż 2000000 bajtów.(2.0 pkt.)<a class="headerlink" href="#rozmiar-jadro-system-musi-byc-mniejszy-niz-2000000-bajtow-2-0-pkt" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<p>Całkowity rozmiar wersji x64 wynosi 1 410 019 bajtów.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Minimalistic Linux</a></h1>
+
+
+
+
+
+
+
+
+<h3>Nawigacja</h3>
+<p class="caption"><span class="caption-text">Spis treści:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="temat.html">TEMAT PRACY</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">WYMAGANIA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#skompilowany-system-ma-byc-uruchomiony-w-emulatorze-qemu-wersja-dowolna-pod-systemem-linux-0-5-pkt">1) Skompilowany system ma być uruchomiony w emulatorze QEMU (wersja dowolna) pod systemem Linux.(0.5 pkt.)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dokumentacja-w-myst-https-myst-parser-readthedocs-io-en-latest-opis-projektu-opis-wykorzystanych-narzedzi-system-budowania-system-operacyjny-wybrany-pakiet-narzedzi-indywidualne-narzedzia-opis-wykorzystanych-metod-do-minimalizacji-systemu-zrzut-ekranu-pokazujacy-zajetosc-systemu-wyrazona-w-bajtach-moze-byc-oddzielnie-jadro-oraz-oddzielnie-system-jezeli-sa-uruchamiane-osobno-jakis-komentarz-do-wynikow-1-0-pkt">2) Dokumentacja w MyST(https://myst-parser.readthedocs.io/en/latest/#) - opis projektu, opis wykorzystanych narzędzi(system budowania - system operacyjny, wybrany pakiet narzędzi, indywidualne narzędzia), opis wykorzystanych metod do minimalizacji systemu, zrzut ekranu pokazujący zajętość systemu wyrażoną w bajtach(może być oddzielnie jądro oraz oddzielnie system, jeżeli są uruchamiane osobno), jakiś komentarz do wyników.(1.0 pkt)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#przygotowanie-patchy-ze-zmianami-wprowadzonymi-do-oryginalnych-projektow-przygotowanie-wersji-binarnych-plikow-projektowych-1-0-pkt">3) Przygotowanie patchy ze zmianami wprowadzonymi do oryginalnych projektów. Przygotowanie wersji binarnych plików projektowych.(1.0 pkt.)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prezentacja-0-5-pkt">4) Prezentacja.(0.5 pkt)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rozmiar-jadro-system-musi-byc-mniejszy-niz-2000000-bajtow-2-0-pkt">5) Rozmiar jądro+system musi być mniejszy niż 2000000 bajtów.(2.0 pkt.)</a></li>
+</ul>
+</li>
+</ul>
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Mikolaj Walkowiak.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/wymagania.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
